@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>개인정보처리방침 | MOTIUS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-black via-gray-900 to-purple-950 text-black font-sans min-h-screen py-12 px-4">
+  <div class="max-w-4xl mx-auto bg-white/95 backdrop-blur-sm rounded-xl shadow-lg p-8">
+    <h1 class="text-3xl font-bold mb-6 text-center text-purple-700">개인정보처리방침</h1>
+    <div id="termsContent" class="prose max-w-none text-sm whitespace-pre-wrap">불러오는 중...</div>
+  </div>
+
+  <script>
+    fetch('/static/privacy.txt')
+      .then(res => res.text())
+      .then(text => {
+        document.getElementById('termsContent').textContent = text;
+      })
+      .catch(() => {
+        document.getElementById('termsContent').textContent = '개인정보처리방침을 불러오는 데 실패했습니다.';
+      });
+  </script>
+</body>
+</html>

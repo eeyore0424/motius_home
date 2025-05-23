@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MOTIUS | 외주 개발 전문팀</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes spin-slow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .animate-spin-slow {
+      animation: spin-slow 60s linear infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(20px); }
+    }
+    .float-anim {
+      animation: float 6s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-black text-white font-sans">
+  <!-- Modal for Terms -->
+  <div id="termsModal" class="fixed inset-0 bg-black bg-opacity-70 z-50 hidden flex items-center justify-center">
+    <div class="relative max-w-3xl w-full mx-4">
+      <div class="bg-white text-black rounded-lg max-h-[80vh] overflow-y-auto p-6">
+        <h2 class="text-2xl font-bold mb-4">이용약관</h2>
+        <div id="termsContent" class="prose max-w-none text-sm whitespace-pre-wrap">불러오는 중...</div>
+      </div>
+      <div class="absolute left-1/2 -translate-x-1/2 -bottom-14 flex justify-center w-full">
+        <button onclick="document.getElementById('termsModal').classList.add('hidden')" class="px-6 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded shadow">닫기</button>
+      </div>
+    </div>
+  </div>
+
+    <div id="privacyModal" class="fixed inset-0 bg-black bg-opacity-70 z-50 hidden flex items-center justify-center">
+    <div class="relative max-w-3xl w-full mx-4">
+      <div class="bg-white text-black rounded-lg max-h-[80vh] overflow-y-auto p-6">
+        <h2 class="text-2xl font-bold mb-4">개인정보처리방침</h2>
+        <div id="privacyContent" class="prose max-w-none text-sm whitespace-pre-wrap">불러오는 중...</div>
+      </div>
+      <div class="absolute left-1/2 -translate-x-1/2 -bottom-14 flex justify-center w-full">
+        <button onclick="document.getElementById('privacyModal').classList.add('hidden')" class="px-6 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded shadow">닫기</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Navigation Bar -->
+  <header class="w-full py-4 px-6 bg-black bg-opacity-80 fixed z-10 top-0">
+    <div class="max-w-screen-xl mx-auto flex justify-between items-center">
+      <div class="text-2xl font-bold text-purple-400">MOTIUS</div>
+      <nav class="space-x-4 text-sm hidden md:block">
+        <a href="#" class="hover:text-purple-400">소개</a>
+        <a href="#" class="hover:text-purple-400">서비스</a>
+        <a href="#" class="hover:text-purple-400">문의</a>
+      </nav>
+    </div>
+  </header>
+  <div class="h-16"></div> <!-- spacer for fixed header -->
+
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-r from-black via-purple-900 to-black py-48 px-6 text-center overflow-hidden">
+    <!-- Decorative background graphic -->
+    <div class="absolute -top-20 -left-20 w-[600px] h-[600px] bg-purple-500 opacity-20 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute top-0 right-0 w-[300px] h-[300px] bg-purple-700 opacity-30 rounded-full blur-2xl animate-spin-slow"></div>
+
+    <!-- Floating Labels (more, tighter spread) -->
+    <div class="absolute top-[10%] left-[15%] bg-purple-600 px-3 py-1 rounded-full text-sm text-white shadow-md float-anim">AI</div>
+    <div class="absolute top-[12%] left-[65%] bg-blue-600 px-3 py-1 rounded-full text-sm text-white shadow-md float-anim">Backend</div>
+    <div class="absolute top-[76%] left-[20%] bg-pink-500 px-3 py-1 rounded-full text-sm text-white shadow-md float-anim">Data</div>
+    <div class="absolute top-[82%] left-[70%] bg-yellow-500 px-3 py-1 rounded-full text-sm text-black shadow-md float-anim">Frontend</div>
+    <div class="absolute top-[84%] left-[40%] bg-indigo-500 px-3 py-1 rounded-full text-sm text-white shadow-md float-anim">Blockchain</div>
+    <div class="absolute top-[88%] left-[10%] bg-teal-500 px-3 py-1 rounded-full text-sm text-white shadow-md float-anim">Web</div>
+    <div class="absolute top-[90%] left-[85%] bg-green-500 px-3 py-1 rounded-full text-sm text-white shadow-md float-anim">App</div>
+    <div class="absolute top-[78%] left-[35%] bg-fuchsia-500 px-3 py-1 rounded-full text-sm text-white shadow-md float-anim">UX</div>
+    <div class="absolute top-[80%] left-[55%] bg-rose-500 px-3 py-1 rounded-full text-sm text-white shadow-md float-anim">UI</div>
+    <div class="absolute top-[74%] left-[75%] bg-cyan-500 px-3 py-1 rounded-full text-sm text-black shadow-md float-anim">API</div>
+    <div class="absolute top-[10%] left-[45%] bg-lime-500 px-3 py-1 rounded-full text-sm text-black shadow-md float-anim">ML</div>
+    <div class="absolute top-[14%] left-[35%] bg-orange-500 px-3 py-1 rounded-full text-sm text-white shadow-md float-anim">DevOps</div>
+
+    <div class="relative z-10 max-w-screen-md mx-auto">
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-8">
+  서비스 런칭까지 단 2주,<br>
+  빠르게 시작해, 제대로 완성해
+</h1>
+<p class="text-gray-300 mb-10">
+  정부지원사업에 특화된 전문 개발팀,<br>
+  기획부터 보고서까지 모티어스가 만듭니다!
+</p>
+      <a href="#contact" class="inline-block bg-purple-500 hover:bg-purple-600 transition px-6 py-3 rounded font-bold text-white mb-16">문의하기</a>
+
+      <!-- Stats Overlaid Box (moved down) -->
+      <div class="absolute bottom-[-80px] left-1/2 transform -translate-x-1/2 w-full max-w-screen-xl px-6">
+        <div class="bg-black/60 backdrop-blur-sm p-6 rounded-xl grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+          <div>
+            <div class="text-3xl font-bold text-purple-400">7+</div>
+            <p class="text-gray-300 mt-2 text-sm">정부사업 선정 횟수</p>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-purple-400">5+</div>
+            <p class="text-gray-300 mt-2 text-sm">MVP 개발 프로젝트</p>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-purple-400">12+</div>
+            <p class="text-gray-300 mt-2 text-sm">IR/피칭 수상 이력</p>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-purple-400">∞</div>
+            <p class="text-gray-300 mt-2 text-sm">대표님 만족도</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+<!-- Section 2: 왜 모티어스인가 -->
+<section class="bg-gray-900 py-20 px-6 text-white">
+  <div class="max-w-screen-xl mx-auto text-center">
+    <h2 class="text-4xl font-bold mb-2">
+      야근은 저희가 할게요.<br/>대표님은 좀 더 주무세요!
+    </h2>
+    <p class="text-gray-400 mt-4 mb-10">
+      빠른 개발과 철저한 보고, 정부지원사업까지 챙기는 든든한 파트너.<br/>
+      우리가 직접 해본 창업, 이제는 대표님의 목표를 위해 개발합니다.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+      <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+        <h3 class="text-xl font-semibold mb-2 text-orange-300">정부지원사업 전문</h3>
+        <p>예비창업패키지, 초기창업패키지, 청년창업사관학교 등 <strong>누적 7회 선정</strong><br/>
+        보고서/정산 등 실무 대응까지 책임집니다.</p>
+      </div>
+
+      <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+        <h3 class="text-xl font-semibold mb-2 text-orange-300">실행력 있는 개발력</h3>
+        <p>IR 수상 12회 경력으로 검증된 기획력과<br/>
+        <strong>3주 내 MVP 런칭 경험 다수</strong>.<br/>스타트업의 속도를 이해합니다.</p>
+      </div>
+
+      <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+        <h3 class="text-xl font-semibold mb-2 text-orange-300">사후관리까지 확실하게</h3>
+        <p>배포, 서버 운영, 성능 모니터링, 유지보수까지<br/>
+        <strong>개발 이후의 책임도 함께합니다</strong>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 3: 팀 소개 -->
+<section class="py-16 px-6 bg-black">
+  <div class="max-w-screen-xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center">👥 팀 소개</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- 대표 -->
+      <div class="bg-gray-800 p-6 rounded-xl shadow-md hover:scale-105 transition">
+        <h3 class="text-xl font-semibold text-purple-300">🚀 대표</h3>
+        <p class="text-sm text-gray-300 mb-2">풀스택 개발자</p>
+        <ul class="text-sm text-gray-400 space-y-1">
+          <li>🎓 항공우주공학 박사 (한국항공대)</li>
+          <li>💻 AI / 백엔드 / 프론트 개발</li>
+          <li>🏆 정부사업 4회 선정, 수상 9건</li>
+        </ul>
+      </div>
+
+      <!-- 기획/디자인 -->
+      <div class="bg-gray-800 p-6 rounded-xl shadow-md hover:scale-105 transition">
+        <h3 class="text-xl font-semibold text-purple-300">🎨 기획/디자인</h3>
+        <p class="text-sm text-gray-300 mb-2">프로덕트 매니저</p>
+        <ul class="text-sm text-gray-400 space-y-1">
+          <li>🎓 경제학 학사 (칭화대/중국)</li>
+          <li>📝 PRD 기획 / MVP 디자인 9회</li>
+          <li>🚀 정부사업/투자 경험 / 수상 6건</li>
+        </ul>
+      </div>
+
+      <!-- 개발자1 -->
+      <div class="bg-gray-800 p-6 rounded-xl shadow-md hover:scale-105 transition">
+        <h3 class="text-xl font-semibold text-purple-300">🧩 개발자1</h3>
+        <p class="text-sm text-gray-300 mb-2">프론트엔드 엔지니어</p>
+        <ul class="text-sm text-gray-400 space-y-1">
+          <li>🎓 정보통신공학 학사 (칭화대/중국) / KAIST 금융공학 석사</li>
+          <li>📱 Flutter, React 5년 이상</li>
+        </ul>
+      </div>
+
+      <!-- 개발자2 -->
+      <div class="bg-gray-800 p-6 rounded-xl shadow-md hover:scale-105 transition">
+        <h3 class="text-xl font-semibold text-purple-300">🛠 개발자2</h3>
+        <p class="text-sm text-gray-300 mb-2">백엔드 & 블록체인 개발자</p>
+        <ul class="text-sm text-gray-400 space-y-1">
+          <li>🎓 기계공학 학사 (칭화대/중국)</li>
+          <li>🔗 블록체인 3년 / 백엔드(Node.js) 5년</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- Section 4: 고객 후기 -->
+  <section class="bg-gray-900 py-16 px-6">
+    <div class="max-w-screen-xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">고객 후기</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="bg-gray-800 p-6 rounded-xl">“모티어스 덕분에 정부 과제를 무사히 마무리했습니다.”</div>
+        <div class="bg-gray-800 p-6 rounded-xl">“피드백이 빠르고 알림도 연동되어서 매우 만족합니다.”</div>
+        <div class="bg-gray-800 p-6 rounded-xl">“IR 발표자료까지 도와줘서 놀랐어요.”</div>
+        <div class="bg-gray-800 p-6 rounded-xl">“MVP 개발을 일주일 만에 끝냈어요.”</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: 문의 폼 -->
+  <section class="py-16 px-6">
+    <div class="max-w-xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">개발 문의하기</h2>
+      <form action="/submit" method="POST" class="space-y-4">
+        <input type="text" name="name" placeholder="회사 또는 이름" class="w-full bg-gray-800 p-4 rounded text-white">
+        <input type="tel" name="phone" placeholder="연락처 (휴대폰)" class="w-full bg-gray-800 p-4 rounded text-white">
+        <textarea name="content" rows="5" placeholder="문의 내용을 적어주세요." class="w-full bg-gray-800 p-4 rounded text-white"></textarea>
+        <button type="submit" class="w-full bg-purple-500 hover:bg-purple-600 transition p-4 rounded font-bold">문의 남기기</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Section 6: Contact 링크 -->
+  <section class="bg-gray-900 py-16 px-6 text-center">
+    <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
+    <p class="text-purple-400"><a href="https://pf.kakao.com/_xxxxxx" target="_blank">카카오톡 채널</a> | <a href="https://open.kakao.com/o/xxxxxx" target="_blank">오픈채팅방</a></p>
+  </section>
+
+<!-- Footer 수정 -->
+  <footer class="bg-gray-800 text-gray-400 text-center text-sm py-8 px-4">
+  <p>
+    사업자명: 모티어스 | 대표자: 전용운<br>
+    사업자등록번호: 376-78-00610<br>
+    전화번호: 070-8983-8868 | 이메일: official@motius.co.kr<br>
+    <a href="#" onclick="openTerms()" class="underline text-purple-400">이용약관</a>
+    ||
+    <a href="#" onclick="openPrivacy()" class="underline text-purple-400">개인정보처리방침</a> 
+  </p>
+  <p class="mt-4">© 2025 MOTIUS. All rights reserved.</p>
+</footer>
+
+  <!-- JS to load terms from file -->
+  <script>
+    function openTerms() {
+      fetch('/static/terms.txt')
+        .then(res => res.text())
+        .then(text => {
+          document.getElementById('termsContent').textContent = text;
+          document.getElementById('termsModal').classList.remove('hidden');
+        });
+    }
+  </script>
+  <script>
+    function openPrivacy() {
+      fetch('/static/privacy.txt')
+        .then(res => res.text())
+        .then(text => {
+          document.getElementById('privacyContent').textContent = text;
+          document.getElementById('privacyModal').classList.remove('hidden');
+        });
+    }
+  </script>
+</body>
+</html>
