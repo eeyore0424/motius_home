@@ -23,7 +23,7 @@ def create_app():
     
     @app.route('/api/send-to-slack', methods=['POST'])
     def sendSlackBotMsg():
-        print("SLACK BOT METHOD 진입")
+        print("SLACK BOT METHOD 진입", flush=True)
         data = request.json
         name = data.get('name')
         phone = data.get('phone')
