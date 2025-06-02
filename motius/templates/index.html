@@ -60,21 +60,23 @@
 
 
   <!-- Navigation Bar -->
-  <header class="w-full px-6 py-4 bg-black bg-opacity-80 fixed top-0 left-0 z-50 overflow-x-hidden">
+  <header class="w-full px-6 py-4 bg-black bg-opacity-80 fixed top-0 left-0 z-50">
     <div class="max-w-screen-xl mx-auto flex justify-between items-center relative">
+      <!-- 로고 -->
       <a href="/" class="text-2xl font-bold text-purple-400">MotiUs</a>
 
+      <!-- 데스크탑 메뉴 -->
       <nav class="hidden md:flex space-x-6 text-sm">
         <a href="#why_motius" class="hover:text-purple-400">소개</a>
-        <a href="#process" class="hover:text-purple-400">개발 과정</a>
+        <a href="#process" class="hover:text-purple-400">개발 프로세스</a>
         <a href="#ask" class="hover:text-purple-400">문의</a>
       </nav>
 
       <!-- 모바일 메뉴 버튼 + 메뉴를 같은 relative 컨테이너 안에! -->
       <div class="md:hidden relative pr-0">
-        <button id="menu-toggle" class="text-purple-400 text-3xl focus:outline-none relative z-50">
-          ☰
-        </button>
+  <button id="menu-toggle" class="text-purple-400 text-3xl focus:outline-none relative z-50">
+    ☰
+  </button>
 
         <!-- 메뉴는 버튼 아래에 뜨고, 위치 고정됨 -->
         <div id="mobile-menu" class="hidden absolute top-full right-0 w-52 bg-black bg-opacity-90 px-6 py-4 mt-2 rounded-xl z-40 shadow-lg">
