@@ -20,7 +20,11 @@ def create_app():
     @app.route('/privacy')
     def privacy():
         return render_template('privacy.html')
-    
+
+    @app.route('/newsletter/unsubscribe')
+    def newsletter_unsubscribe_page():
+        return render_template('newsletter_unsubscribe.html')
+
     @app.route('/api/send-to-slack', methods=['POST'])
     def sendSlackBotMsg():
         print("SLACK BOT METHOD 진입", flush=True)

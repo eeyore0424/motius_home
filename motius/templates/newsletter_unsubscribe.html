@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>뉴스레터 수신 거부 | MOTIUS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white font-sans min-h-screen">
+  <header class="w-full px-6 py-4 bg-black bg-opacity-80 border-b border-gray-800">
+    <!-- <div class="max-w-screen-xl mx-auto flex items-center">
+      <a href="/" class="text-2xl font-bold text-purple-400">MotiUs</a>
+    </div> -->
+  </header>
+
+  <main class="max-w-md mx-auto px-6 py-24">
+    <h1 class="text-2xl font-bold text-center mb-2">뉴스레터 수신 거부</h1>
+    <p class="text-gray-400 text-center text-sm mb-10">
+      수신 거부할 이메일 주소를 입력해 주세요.
+    </p>
+
+    <form id="unsubscribeForm" class="space-y-4">
+      <div>
+        <label for="email" class="block text-sm text-gray-400 mb-2">이메일</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="example@email.com"
+          class="w-full px-4 py-3 rounded-lg bg-gray-900 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+        />
+      </div>
+      <button
+        type="submit"
+        id="submitBtn"
+        class="w-full py-3 px-4 bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        수신거부하기
+      </button>
+    </form>
+
+    <div id="message" class="mt-6 text-center text-sm hidden"></div>
+    <!-- <p class="mt-8 text-center">
+      <a href="/" class="text-purple-400 hover:text-purple-300">홈으로 돌아가기</a>
+    </p> -->
+  </main>
+
+  <script>
+    document.getElementById('unsubscribeForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const emailInput = document.getElementById('email');
+      const submitBtn = document.getElementById('submitBtn');
+      const messageEl = document.getElementById('message');
+
+      const email = (emailInput.value || '').trim();
+      if (!email) {
+        messageEl.textContent = '이메일을 입력해 주세요.';
+        messageEl.className = 'mt-6 text-center text-sm text-red-400';
+        messageEl.classList.remove('hidden');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      messageEl.classList.add('hidden');
+
+      try {
+        const res = await fetch(`/api/newsletter/unsubscribe?email=${encodeURIComponent(email)}`);
+        const data = await res.json().catch(() => ({}));
+
+        if (res.ok && data.status === 'ok') {
+          messageEl.textContent = '수신 거부 요청이 접수되었습니다.';
+          messageEl.className = 'mt-6 text-center text-sm text-green-400';
+          emailInput.value = '';
+        } else {
+          messageEl.textContent = data.message || '요청 처리 중 오류가 발생했습니다.';
+          messageEl.className = 'mt-6 text-center text-sm text-red-400';
+        }
+      } catch (err) {
+        messageEl.textContent = '네트워크 오류가 발생했습니다.';
+        messageEl.className = 'mt-6 text-center text-sm text-red-400';
+      }
+      messageEl.classList.remove('hidden');
+      submitBtn.disabled = false;
+    });
+  </script>
+</body>
+</html>
