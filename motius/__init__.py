@@ -63,10 +63,9 @@ def create_app():
             logger.error(f"Error posting message : {e}")
             return jsonify({'status':'fail', 'message' : str(e)}), 500
 
-    @app.route('/api/newsletter/unsubscribe', methods=['POST'])
+    @app.route('/api/newsletter/unsubscribe', methods=['GET'])
     def newsletter_unsubscribe():
-        data = request.get_json() or {}
-        email = data.get('email')
+        email = request.args.get('email')
         if not email or not isinstance(email, str):
             return jsonify({'status': 'error', 'message': 'email is required'}), 400
 
